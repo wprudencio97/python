@@ -13,14 +13,9 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
-exists = User.query.filter_by(username = 'Flask').first() is not None
-
-if exists:
-    pass
-else:
-    db.create_all()
-    db.session.add(User(username='Flask', email='example@example.com'))
-    db.session.commit()
+db.create_all()
+#db.session.add(User(username='Flask', email='example@example.com'))
+#db.session.commit()
 
 user = User.query.filter_by(username='Flask').first()
 
